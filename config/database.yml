@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: db
+  username: postgres
+  password:
+development:
+  <<: *default
+  database: cart_development
+test:
+  <<: *default
+  database: cart_test
+production:
+  <<: *default
+  database: cart_production
+  username: cart
+  password: <%= ENV['CART_DATABASE_PASSWORD'] %>
+
