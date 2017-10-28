@@ -19,7 +19,8 @@ gem 'rails_best_practices'
 
 gem 'rubocop', require: false
 
-gem 'rubycritic', require: false
+gem 'simplecov', :require => false, :group => :test
+gem 'bootstrap3-rails'
 
 gem 'rails-i18n', '~> 5.0.0'
 
