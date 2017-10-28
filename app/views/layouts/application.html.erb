@@ -5,12 +5,21 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <%= render 'layouts/header' %>
+
     <div class="container">
     <%= yield %>    	
     </div>
+
+    <footer class="row">
+        <hr />
+        <p>TestCart 2017 &copy;</p>
+    </footer>
+    
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
