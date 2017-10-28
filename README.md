@@ -1,24 +1,47 @@
-# README
+# rogpe [ Cart ]
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create a car
 
-Things you may want to cover:
+Exemplo da aplicação: https://cartest.herokuapp.com/
 
-* Ruby version
+[www.about.me/rodolfopeixoto](http://www.about.me/rodolfopeixoto) 
 
-* System dependencies
+Versão do Projeto 0.1
+================
 
-* Configuration
+Sobre esta versão
+---------------------
+Site desenvolvido:
+Utilizei: 
+ - Bootstrap 3.2
+ - Ruby on Rails 5.1
+ - Redis
+ 
 
-* Database creation
+ATENÇÃO
+---------------------
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Pré-Requisito
+---------------------
 
-* Deployment instructions
+- Docker
+- Docker-Compose
 
-* ...
+
+
+
+Configuração inicial
+---------------------
+
+
+Documentação
+----------------------
+
+### Links diretos:
+
+
+Desenvolvimento
+---------------------
+-   [Rodolfo Peixoto](http://www.rogpe.me)

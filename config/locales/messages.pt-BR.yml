@@ -1,0 +1,6 @@
+'pt-BR':
+  message:
+    product:
+      create: Produto cadastrado com sucesso.
+      update: Produto atualizado com sucesso.
+      destroy: Produto excluído com sucesso.
