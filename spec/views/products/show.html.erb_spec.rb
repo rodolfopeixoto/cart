@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe "products/show", type: :view do
   before(:each) do
     @product = assign(:product, Product.create!(
-      :name => "Name",
-      :price => 2.5
+                                  name: "Name",
+                                  price: 2.5
     ))
   end
 

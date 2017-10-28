@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
@@ -49,11 +51,11 @@ class ProductsController < ApplicationController
 
   private
 
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def product_params
-      params.require(:product).permit(:name, :price)
-    end
+  def product_params
+    params.require(:product).permit(:name, :price)
+  end
 end
