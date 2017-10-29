@@ -1,12 +1,38 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+<div class="col-md-4">
+  <div class="col-md-12">
+    <%= image_tag 'rails', width: '120', height: '120' %>
+  </div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <div class="col-md-12">
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+    <h4><%= @product.name  %></h4>
+  </div>
+
+
+  <div class="col-md-12">
+    <p><%= @product.price %></p>
+  </div>
+
+
+  <div class="col-md-12">
+  Quantidade: <input type="number" id="product_quantity" class="text-center" value="1">
+  </div>
+  <div class="col-md-12">
+
+    <% if signed_in? %>
+    <%=link_to "", class: "btn btn-primary", 
+    data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do %>
+    <i class="fi-shopping-cart"></i>
+    <span><%=@cart_action%></span> Cart
+    <% end %>
+    <% end %>
+
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= link_to 'Back', products_path %>
+  </div>
+</div>

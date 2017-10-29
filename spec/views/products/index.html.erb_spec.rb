@@ -18,7 +18,7 @@ RSpec.describe "products/index", type: :view do
 
   it "renders a list of products" do
     render
-    assert_select "tr > td h4.nomargin", text: "Name".to_s, count: 2
-    assert_select "tr > td.price", text: "$2.5", count: 2
+    assert_select ".col-md-12 h5", text: "Name".to_s, count: 2
+    assert_select ".col-md-12 p", text: "$2.5", count: 2
   end
 end
