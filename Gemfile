@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1.0'
-gem 'pg', '~> 0.18'
+gem 'pg'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -20,8 +20,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-gem 'redis', '~> 3.0.1'
-gem 'hiredis', '~> 0.4.5'
+gem "redis", ">= 3.2.0", require: ["redis", "redis/connection/hiredis"]
+gem 'hiredis', '~> 0.6.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

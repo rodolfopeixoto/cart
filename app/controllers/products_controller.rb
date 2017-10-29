@@ -8,7 +8,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @cart_action = @product.cart_action current_user.try :id
+  end
 
   def new
     @product = Product.new
