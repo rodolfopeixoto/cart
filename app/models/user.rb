@@ -8,8 +8,9 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def cart_count
-    # $redis.get("cart#{id}", "quantity")
-    total_quantity = $redis.keys("#cart{id}:product*:quantity").map { |key| puts $redis.get("#{key.to_i}") }
-    total_quantity.reduce(0, :+)
+    @quantity = []
+    keys_quantity = $redis.keys("cart#{id}:product*:quantity")
+    keys_quantity.map { |key| @quantity << $redis.get(key).to_i }
+    @quantity.reduce(0, :+)
   end
 end
