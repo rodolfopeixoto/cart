@@ -1,34 +1,28 @@
+
+//getUser
+
+  function getUser(url){
+    return url.match(/\d/)
+  }
+
+
 // AddCart
-
-$(window).load(function(){
-  return $('a[data-target]').click(function(event){
-    var $this, input;
-    event.preventDefault();
-    $this = $(this);
-    input = $('input#product_quantity').val();
-    console.log(input);
-  });
-});
-
 $(window).load(function() {
   return $('a[data-target]').click(function(e) {
-    var $this, new_target, url;
+    var $this, new_target, url, id_user, quantity;
+    quantity = $('input#product_quantity').val();
     e.preventDefault();
     $this = $(this);
-    if ($this.data('target') === 'Add to') {
-      url = $this.data('addurl');
-      new_target = "Remove from";
-    } else {
-      url = $this.data('removeurl');
-      new_target = "Add to";
-    }
+ 
+     url = $this.data('addurl');
+    
+
+    id_user = getUser(url);
     return $.ajax({
-      url: url,
+      url: '/cart/add/'+id_user+'/'+quantity,
       type: 'put',
       success: function(data) {
         $('.cart-count').html(data);
-        $this.find('span').html(new_target);
-        return $this.data('target', new_target);
       }
     });
   });
