@@ -1,39 +1,48 @@
+
+//getUser
+
+  function getUser(url){
+    return url.match(/\d/)
+  }
+
+
 // AddCart
-
-$(window).load(function(){
-  return $('a[data-target]').click(function(event){
-    var $this, input;
-    event.preventDefault();
-    $this = $(this);
-    input = $('input#product_quantity').val();
-    console.log(input);
-  });
-});
-
 $(window).load(function() {
   return $('a[data-target]').click(function(e) {
-    var $this, new_target, url;
+    var $this, new_target, url, id_user, quantity;
+    quantity = $('input#product_quantity').val();
     e.preventDefault();
     $this = $(this);
-    if ($this.data('target') === 'Add to') {
-      url = $this.data('addurl');
-      new_target = "Remove from";
-    } else {
-      url = $this.data('removeurl');
-      new_target = "Add to";
-    }
+ 
+     url = $this.data('addurl');
+     var price = document.querySelector("#product_price").textContent;
+
+    id_user = getUser(url);
     return $.ajax({
-      url: url,
+      url: '/cart/add/'+id_user+'/'+quantity + '/' + price,
       type: 'put',
       success: function(data) {
         $('.cart-count').html(data);
-        $this.find('span').html(new_target);
-        return $this.data('target', new_target);
       }
     });
   });
   
 });
+
+$(window).load(function(){
+  subtotals = document.querySelectorAll("#subtotal")
+  var total = 0
+
+  for(var i = 0; i < subtotals.length; i++){
+    total = total + parseFloat(subtotals[i].textContent);
+  }
+  var total_html = document.querySelector("span#total");
+  
+   if (total_html){
+    total_html.textContent = total;
+   }
+
+})
 
 
 // Remove Cart
@@ -54,3 +63,12 @@ $(window).load(function() {
     });
   });
 });
+
+
+$(window).load(function(){
+  return $("#checkout").click(function(event){
+    var $this
+    event.preventDefault();
+    alert('Thanks!!');
+  })
+})
