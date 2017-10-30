@@ -8,7 +8,7 @@ RSpec.describe CartsController, type: :routing do
       expect(get: "cart").to route_to("carts#show")
     end
     it "routes to #add" do
-      expect(put: "cart/add/1").to route_to("carts#add", product_id: "1")
+      expect(put: "cart/add/1/1/1").to route_to("carts#add", product_id: "1", quantity: "1", price: "1")
     end
     it "routes do #remove" do
       expect(put: "cart/remove/1").to route_to("carts#remove", product_id: "1")

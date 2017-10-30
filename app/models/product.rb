@@ -3,7 +3,7 @@
 class Product < ApplicationRecord
   validates :name, :price, presence: true
 
-  def cart_action(current_user_id)
+  def cart_action(_current_user_id)
     "Add to"
   end
 end

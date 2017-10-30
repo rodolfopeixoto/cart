@@ -25,9 +25,9 @@
               </td>
               <td data-th="Price" class="price">$<%= product.price %></td>
               <td data-th="Quantity">
-                <input type="number" class="form-control text-center" value="1">
+                <input type="number" class="form-control text-center" value="<%= quantity(current_user.id, product.id) %>">
               </td>
-              <td data-th="Subtotal" class="text-center">1.99</td>
+              <td data-th="Subtotal" class="text-center">$<span id="subtotal"><%= subtotal(current_user.id, product.id, product.price) %></span></td>
               <td class="actions" data-th="">
                 <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
                 <%=link_to "", class: "btn btn-danger btn-sm", 
@@ -39,15 +39,12 @@
             </tr>
           <% end %>
           </tbody>
-          <tfoot>
-            <tr class="visible-xs">
-              <td class="text-center"><strong>Total 1.99</strong></td>
-            </tr>
+          <tfoot> 
             <tr>
               <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
               <td colspan="2" class="hidden-xs"></td>
-              <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-              <td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+              <td class="hidden-xs text-center"><strong>Total $<span id="total"></span></strong></td>
+              <td><a href="#" id="checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
             </tr>
           </tfoot>
         </table>

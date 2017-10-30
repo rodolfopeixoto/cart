@@ -15,11 +15,11 @@ $(window).load(function() {
     $this = $(this);
  
      url = $this.data('addurl');
-    
+     var price = document.querySelector("#product_price").textContent;
 
     id_user = getUser(url);
     return $.ajax({
-      url: '/cart/add/'+id_user+'/'+quantity,
+      url: '/cart/add/'+id_user+'/'+quantity + '/' + price,
       type: 'put',
       success: function(data) {
         $('.cart-count').html(data);
@@ -28,6 +28,21 @@ $(window).load(function() {
   });
   
 });
+
+$(window).load(function(){
+  subtotals = document.querySelectorAll("#subtotal")
+  var total = 0
+
+  for(var i = 0; i < subtotals.length; i++){
+    total = total + parseFloat(subtotals[i].textContent);
+  }
+  var total_html = document.querySelector("span#total");
+  
+   if (total_html){
+    total_html.textContent = total;
+   }
+
+})
 
 
 // Remove Cart
@@ -48,3 +63,12 @@ $(window).load(function() {
     });
   });
 });
+
+
+$(window).load(function(){
+  return $("#checkout").click(function(event){
+    var $this
+    event.preventDefault();
+    alert('Thanks!!');
+  })
+})

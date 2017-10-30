@@ -32,6 +32,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'capybara'
+  gem "fakeredis"
 end
 
 group :development do
