@@ -9,7 +9,7 @@ Exemplo da aplicação: https://cartest.herokuapp.com/
 Versão do Projeto 0.1
 ================
 
-Sobre esta versão
+Version
 ---------------------
 Site desenvolvido:
 Utilizei: 
@@ -18,7 +18,7 @@ Utilizei:
  - Redis
  
 
-ATENÇÃO
+WARNING
 ---------------------
 
 
@@ -32,11 +32,31 @@ Pré-Requisito
 
 
 
-Configuração inicial
+Install
 ---------------------
+[Install Docker - Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-docker-compose-on-ubuntu-16-04)
 
 
-Documentação
+Command
+--------------------
+After installing just generate the commands inside the folder:
+
+Build image in docker
+```
+docker-compose build
+```
+
+Start Server
+```
+docker-compose up
+```
+
+Generate database
+```
+docker-compose run --rm web rails db:create db:migrate db:seed
+```
+
+Documentation
 ----------------------
 
 ### Links diretos:
